@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import Dummy from './dummy.json'
+import ListUser from './ListUser'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  constructor(props){
+    super(props)
+
+    this.state = {pengguna : Dummy}
+  }
+
+    render(){
+        return(
+          <>
+            <div className="header">
+                <h1>Daftar Pengguna</h1>
+            </div>
+           <div>
+           <ListUser users = {this.state.pengguna}/>
+           </div>
+          </>
+        )
+    }
 }
 
-export default App;
+export default App
